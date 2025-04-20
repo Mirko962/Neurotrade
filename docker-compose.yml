@@ -1,0 +1,15 @@
+
+version: "3.9"
+
+services:
+  neurotrade-core:
+    build: ./core
+    container_name: neurotrade_core
+    volumes:
+      - ./charts:/app/charts
+      - ./logs:/app/logs
+      - ./models:/app/models
+      - ./journal:/app/journal
+    env_file:
+      - .env
+    restart: unless-stopped
